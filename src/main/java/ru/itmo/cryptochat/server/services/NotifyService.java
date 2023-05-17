@@ -2,11 +2,8 @@ package ru.itmo.cryptochat.server.services;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.itmo.cryptochat.server.entities.Message;
 import ru.itmo.cryptochat.server.repositories.CustomizedMessageCrudRepository;
 
-import java.util.Date;
-import java.util.List;
 import java.util.UUID;
 
 @Service
