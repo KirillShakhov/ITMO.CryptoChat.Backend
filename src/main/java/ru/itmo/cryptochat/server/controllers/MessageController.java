@@ -22,20 +22,20 @@ public class MessageController {
     private final MessageService messageService;
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Boolean> CreateMessage(@Valid @RequestBody MessageDto messageDto){
-        messageService.Create(messageDto.uuid, messageDto.recipient, messageDto.data, messageDto.pass);
+    public ResponseEntity<Boolean> createMessage(@Valid @RequestBody MessageDto messageDto){
+        messageService.create(messageDto.uuid, messageDto.recipient, messageDto.data, messageDto.pass);
         return new ResponseEntity<>(true, HttpStatus.OK);
     }
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<Message>> FindMessage(@Valid   @RequestBody FindDto findDto) {
-        var list = messageService.Find(findDto.recipient, findDto.pass);
+    public ResponseEntity<List<Message>> findMessage(@Valid   @RequestBody FindDto findDto) {
+        var list = messageService.find(findDto.recipient, findDto.pass);
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
     @Transactional
     @DeleteMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Boolean> DeleteMessage(@Valid  @RequestBody DeleteDto deleteDto) {
-        return new ResponseEntity<>(messageService.Delete(deleteDto.uuid, deleteDto.pass), HttpStatus.OK);
+    public ResponseEntity<Boolean> deleteMessage(@Valid  @RequestBody DeleteDto deleteDto) {
+        return new ResponseEntity<>(messageService.delete(deleteDto.uuid, deleteDto.pass), HttpStatus.OK);
     }
 }

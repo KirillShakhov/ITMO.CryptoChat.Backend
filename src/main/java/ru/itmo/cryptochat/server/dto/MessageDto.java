@@ -1,12 +1,8 @@
 package ru.itmo.cryptochat.server.dto;
 
 import jakarta.validation.constraints.NotBlank;
-import lombok.Getter;
-import lombok.Setter;
 
 
-@Getter
-@Setter
 public class MessageDto {
     @NotBlank(message = "uuid is required")
     public String uuid;

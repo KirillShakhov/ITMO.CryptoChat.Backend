@@ -15,7 +15,7 @@ public class MessageService {
     private final CustomizedMessageCrudRepository customizedMessageCrudRepository;
     private final HashService hashService;
 
-    public void Create(String uuid, String recipient, String data, String pass) {
+    public void create(String uuid, String recipient, String data, String pass) {
         var message = Message
                 .builder()
                 .uuid(UUID.fromString(uuid))
@@ -27,11 +27,11 @@ public class MessageService {
         customizedMessageCrudRepository.save(message);
     }
 
-    public List<Message> Find(String recipient, String pass){
+    public List<Message> find(String recipient, String pass){
         return customizedMessageCrudRepository.findByRecipientAndPass(UUID.fromString(recipient), hashService.sha256(pass));
     }
 
-    public boolean Delete(String uuid, String pass) {
+    public boolean delete(String uuid, String pass) {
         return customizedMessageCrudRepository.deleteByUuidAndPass(UUID.fromString(uuid), hashService.sha256(pass)) > 0;
     }
 }
