@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController()
 @RequestMapping("/api/v1/info")
 public class InfoController {
-    @GetMapping(value = "/")
+    @GetMapping()
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<String> InfoServer() {
+    public ResponseEntity<String> infoServer() {
         return new ResponseEntity<>("crypto1.0", HttpStatus.OK);
     }
 }

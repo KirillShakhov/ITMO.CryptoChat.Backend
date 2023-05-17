@@ -2,7 +2,6 @@ package ru.itmo.cryptochat.server.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.Hibernate;
 
 import java.util.Date;
 import java.util.Objects;
@@ -24,12 +23,13 @@ public class Message {
     public String pass;
     public Date createdDate;
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         Message message = (Message) o;
-        return getUuid() != null && Objects.equals(getUuid(), message.getUuid());
+        return Objects.equals(uuid, message.uuid) && Objects.equals(recipient, message.recipient) && Objects.equals(data, message.data) && Objects.equals(pass, message.pass) && Objects.equals(createdDate, message.createdDate);
     }
 
     @Override

@@ -10,4 +10,6 @@ import java.util.UUID;
 @Repository
 public interface CustomizedMessageCrudRepository extends JpaRepository<Message, UUID> {
     List<Message> findByRecipientAndPass(UUID recipient, String pass);
+    List<Message> findByRecipient(UUID recipient);
+    Integer deleteByUuidAndPass(UUID uuid, String pass);
 }
