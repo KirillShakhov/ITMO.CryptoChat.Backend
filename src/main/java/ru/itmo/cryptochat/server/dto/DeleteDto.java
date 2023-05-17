@@ -1,10 +1,11 @@
 package ru.itmo.cryptochat.server.dto;
 
-import javax.validation.constraints.NotBlank;
+
+import jakarta.validation.constraints.NotBlank;
 
 public class DeleteDto {
-    @NotBlank(message = "uuid not found")
+    @NotBlank(message = "uuid is required")
     public String uuid;
-    @NotBlank(message = "pass not found")
+    @NotBlank(message = "pass is required")
     public String pass;
 }

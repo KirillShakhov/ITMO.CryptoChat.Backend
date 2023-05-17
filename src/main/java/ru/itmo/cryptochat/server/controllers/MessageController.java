@@ -1,6 +1,7 @@
 package ru.itmo.cryptochat.server.controllers;
 
 import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -12,7 +13,6 @@ import ru.itmo.cryptochat.server.dto.MessageDto;
 import ru.itmo.cryptochat.server.entities.Message;
 import ru.itmo.cryptochat.server.services.MessageService;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @RestController()
@@ -28,14 +28,14 @@ public class MessageController {
     }
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<Message>> FindMessage(@Valid @RequestBody FindDto findDto) {
+    public ResponseEntity<List<Message>> FindMessage(@Valid   @RequestBody FindDto findDto) {
         var list = messageService.Find(findDto.recipient, findDto.pass);
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
     @Transactional
     @DeleteMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Boolean> DeleteMessage(@Valid @RequestBody DeleteDto deleteDto) {
+    public ResponseEntity<Boolean> DeleteMessage(@Valid  @RequestBody DeleteDto deleteDto) {
         return new ResponseEntity<>(messageService.Delete(deleteDto.uuid, deleteDto.pass), HttpStatus.OK);
     }
 }

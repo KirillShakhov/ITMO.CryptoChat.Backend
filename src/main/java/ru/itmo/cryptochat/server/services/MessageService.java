@@ -1,14 +1,8 @@
 package ru.itmo.cryptochat.server.services;
 
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import ru.itmo.cryptochat.server.dto.MessageDto;
-import ru.itmo.cryptochat.server.dto.PageDto;
 import ru.itmo.cryptochat.server.entities.Message;
-import ru.itmo.cryptochat.server.exceptions.PageNotFoundException;
 import ru.itmo.cryptochat.server.repositories.CustomizedMessageCrudRepository;
 
 import java.util.Date;
