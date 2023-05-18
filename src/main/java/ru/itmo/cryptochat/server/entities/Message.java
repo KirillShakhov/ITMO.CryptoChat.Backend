@@ -17,8 +17,10 @@ import java.util.UUID;
 @Table(name = "messages")
 public class Message {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public UUID uuid;
     public UUID recipient;
+    @Column(columnDefinition="text")
     public String data;
     public String pass;
     public Date createdDate;

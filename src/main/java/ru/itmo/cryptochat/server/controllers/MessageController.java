@@ -23,7 +23,7 @@ public class MessageController {
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Boolean> createMessage(@Valid @RequestBody MessageDto messageDto){
-        messageService.create(messageDto.uuid, messageDto.recipient, messageDto.data, messageDto.pass);
+        messageService.create(messageDto.recipient, messageDto.data, messageDto.pass);
         return new ResponseEntity<>(true, HttpStatus.OK);
     }
 

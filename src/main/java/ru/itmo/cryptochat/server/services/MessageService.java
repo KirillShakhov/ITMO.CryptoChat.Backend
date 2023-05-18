@@ -15,10 +15,9 @@ public class MessageService {
     private final CustomizedMessageCrudRepository customizedMessageCrudRepository;
     private final HashService hashService;
 
-    public void create(String uuid, String recipient, String data, String pass) {
+    public void create(String recipient, String data, String pass) {
         var message = Message
                 .builder()
-                .uuid(UUID.fromString(uuid))
                 .recipient(UUID.fromString(recipient))
                 .data(data)
                 .pass(hashService.sha256(pass))
