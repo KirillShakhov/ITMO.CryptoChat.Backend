@@ -15,8 +15,7 @@ import ru.itmo.cryptochat.server.services.NotifyService;
 public class NotifyController {
     private final NotifyService notifyService;
 
-    @GetMapping()
-    @ResponseStatus(HttpStatus.OK)
+    @PostMapping
     public ResponseEntity<String> notifications(@Valid @RequestBody NotifyDto notifyDto) {
         return new ResponseEntity<>(notifyService.notifications(notifyDto.recipient), HttpStatus.OK);
     }
