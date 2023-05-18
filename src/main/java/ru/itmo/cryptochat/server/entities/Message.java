@@ -1,5 +1,6 @@
 package ru.itmo.cryptochat.server.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -22,6 +23,7 @@ public class Message {
     public UUID recipient;
     @Column(columnDefinition="text")
     public String data;
+    @JsonIgnore
     public String pass;
     public Date createdDate;
 
