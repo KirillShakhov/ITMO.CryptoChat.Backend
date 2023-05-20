@@ -25,6 +25,7 @@ public class Message {
     public String data;
     @JsonIgnore
     public String pass;
+    @JsonIgnore
     public Date createdDate;
 
 
