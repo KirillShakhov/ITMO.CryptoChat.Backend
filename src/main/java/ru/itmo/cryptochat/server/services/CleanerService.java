@@ -18,7 +18,7 @@ public class CleanerService {
 
     @Transactional
     @Scheduled(fixedRate = 30000)
-    public void greeting() {
+    public void cleaning() {
         Calendar cal = Calendar.getInstance();
         cal.setTime(new Date());
         cal.add(Calendar.HOUR, -1);

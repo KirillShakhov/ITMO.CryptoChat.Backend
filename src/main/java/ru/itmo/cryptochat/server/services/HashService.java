@@ -8,7 +8,6 @@ import java.security.MessageDigest;
 
 @Service
 public class HashService {
-
     public String sha256(final String base) {
         try{
             final MessageDigest digest = MessageDigest.getInstance("SHA-256");
@@ -26,3 +25,4 @@ public class HashService {
         }
     }
 }
+
