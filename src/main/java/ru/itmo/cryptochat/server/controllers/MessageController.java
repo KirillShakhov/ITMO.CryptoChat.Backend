@@ -33,7 +33,6 @@ public class MessageController {
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
-    @Transactional
     @DeleteMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Boolean> deleteMessage(@Valid  @RequestBody DeleteDto deleteDto) {
         return new ResponseEntity<>(messageService.delete(deleteDto.uuid, deleteDto.pass), HttpStatus.OK);

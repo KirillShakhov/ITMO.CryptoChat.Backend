@@ -1,5 +1,6 @@
 package ru.itmo.cryptochat.server.services;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.itmo.cryptochat.server.entities.Message;
@@ -30,6 +31,7 @@ public class MessageService {
         return customizedMessageCrudRepository.findByRecipientAndPass(UUID.fromString(recipient), hashService.sha256(pass));
     }
 
+    @Transactional
     public boolean delete(String uuid, String pass) {
         return customizedMessageCrudRepository.deleteByUuidAndPass(UUID.fromString(uuid), hashService.sha256(pass)) > 0;
     }
