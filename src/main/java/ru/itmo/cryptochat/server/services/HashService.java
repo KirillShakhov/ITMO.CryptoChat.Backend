@@ -25,8 +25,4 @@ public class HashService {
             throw new RuntimeException(ex);
         }
     }
-
-    public boolean compare(final String hash, final String pass) {
-        return hash.equals(sha256(pass));
-    }
 }

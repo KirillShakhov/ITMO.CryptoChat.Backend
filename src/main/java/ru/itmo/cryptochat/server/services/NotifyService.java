@@ -21,3 +21,4 @@ public class NotifyService {
         return hashService.sha256(stringForHash.toString());
     }
 }
+
